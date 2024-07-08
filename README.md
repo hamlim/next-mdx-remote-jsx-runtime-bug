@@ -1,16 +1,22 @@
-# Template monorepo
+# next-mdx-remote-jsx-runtime-bug
 
-This is a template repo in GitHub for creating a fresh monorepo for managing code and documentation.
+This repo replicates a bug in either `next` or `next-mdx-remote` where (I think) the dynamic `require` of the `react/jsx-runtime` leads to the following error:
 
-For more details on this setup, refer to my blog post here: https://matthamlin.me/2024/february/library-docs-monorepo-template
+```sh
+Error: A React Element from an older version of React was rendered. This is not supported. It can happen if:
+- Multiple copies of the "react" package is used.
+- A library pre-bundled an old copy of "react" or "react/jsx-runtime".
+- A compiler tries to "inline" JSX instead of using the runtime.
+```
 
-## Getting Started:
+## Steps to reproduce:
 
-- Use this template (see `Use this Template` button near the top right corner of the page)
-- Clone the newly created repo
-- Run `bun install` (if you don't have bun installed locally, refer to their [docs](https://bun.sh))
-- Start writing some code!
+- Clone the repo
+- Install dependencies via `bun install`
+- `cd apps/docs`
+- Run `bun run dev`
+- visit http://localhost:3000
+- See error from Next!
 
----
-
-Check out the [Guidebook](./GUIDEBOOK.md) for more details on how to use this repo setup!
+`next` versions: 15.0.0-canary.59
+`next-mdx-remote` version: `5.0.0`
