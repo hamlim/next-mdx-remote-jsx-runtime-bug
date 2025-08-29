@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.0.0-canary.59",
+    "next": "15.4.7",
     "next-mdx-remote": "^5.0.0"
   },
   "devDependencies": {
